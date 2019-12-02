@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>03 组件化编程</title>
+</head>
+
+<body>
+  <div id='test1'></div>
+  <div id='test2'></div>
+  <script type="text/javascript" src='../js/react.development.js'></script>
+  <script type="text/javascript" src='../js/react-dom.development.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+  <script type="text/javascript" src='../js/babel.min.js'></script>
+  <!-- 将jsx转化为js -->
+  <script type="text/babel">
+
+    /**需求：自定义组件显示一个人员信息，功能说明如下：
+       * 1.姓名必须指定
+       * 2.如果性别没有指定，默认为男
+       * 3.如果年龄没有指定，默认为18
+       */
+      // 1.定义组件
+      function Person(props){
+        return (
+          <ul>
+            <li>姓名：{props.name}</li>
+            <li>年龄：{props.age}</li>
+            <li>性别：{props.sex}</li>
+          </ul>
+        )
+      }
+
+      //es6写法
+      // class Person extends React.Component{
+      //   render(){
+      //     return (
+      //     <ul>
+      //       <li>姓名：{this.props.name}</li>
+      //       <li>年龄：{this.props.age}</li>
+      //       <li>性别：{this.props.sex}</li>
+      //     </ul>
+      //     )
+      //   }
+      // }
+
+      
+
+      //指定属性默认值
+      Person.defaultProps = {
+        sex:'男',
+        age:18
+      }
+      //对props中的属性值的指定类型和必要性
+      Person.propTypes  = {
+        name:PropTypes.string.isRequired,
+        age:PropTypes.number
+      }
+
+      // 2.渲染组件标签
+
+      const p1 = {
+        name:'Tom',
+        age:18,
+        sex:'女'
+      }
+
+      const p2 = {
+        name:'JACK',
+      }
+
+      // ReactDOM.render(<Person name={p1.name} age={p1.age} sex={p1.sex}/>,document.getElementById('test1'));
+      /**
+       * ...的作用
+       * 1.打包
+       * function fn(...as){}
+       * fn(1,2,3)
+       * 2.解包
+       * const arr1 = [1,2,3]
+       * const arr2 = [6,...arr1,9]
+       */
+      ReactDOM.render(<Person {...p1}/>,document.getElementById('test1'));
+
+      ReactDOM.render(<Person name={p2.name} age={p2.age} sex={p2.sex}/>,document.getElementById('test2'));
+    </script>
+</body>
+
+</html>

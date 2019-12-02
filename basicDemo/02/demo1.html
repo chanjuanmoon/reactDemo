@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>02 虚拟DOM</title>
+</head>
+
+<body>
+  <div id='example'></div>
+
+  <script type="text/javascript" src='../js/react.development.js'></script>
+  <script type="text/javascript" src='../js/react-dom.development.js'></script>
+  <script type="text/javascript" src='../js/babel.min.js'></script>
+  <script type="text/babel">
+    /*动态展示列表*/
+      /**
+      问题：如何将一个数据的数组转换为一个标签的数组
+      解决：map
+      */
+      const arr = ['jQuery','zepto','angular','vue','react'];
+
+      //1.创建虚拟DOM元素对象 jsx
+      const ul = (
+        <ul>
+          {
+           arr.map((name,index)=><li key={index}>{name}</li>)
+          }
+        </ul>
+      )
+      //2.将虚拟DOM元素对象渲染到真实DOM容器中
+      ReactDOM.render(ul,document.getElementById('example'));
+    </script>
+</body>
+
+</html>
