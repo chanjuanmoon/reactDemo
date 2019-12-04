@@ -34,6 +34,10 @@ export default class Message extends Component {
   handleFoward = e => {
     this.props.history.goForward();
   }
+  // 页面跳转
+  reqPage = e => {
+    window.location = 'http://www.baidu.com';
+  }
   render() {
     const { messageList, haveData } = this.state;
     return !haveData ? (
@@ -54,6 +58,7 @@ export default class Message extends Component {
         ></List>
         <Button onClick={this.handleBack}>回退</Button>
         <Button onClick={this.handleFoward}>前进</Button>
+        <Button onClick={this.reqPage}>页面跳转</Button>
         <Route path='/home/message/messageDetail/:id' component={MessageDetail}></Route>
       </div>
     );
