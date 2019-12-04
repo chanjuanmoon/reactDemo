@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import { Select , Button } from 'antd';
+import PropTypes from 'prop-types'
 
-import './appRedux.css'
-import * as actions from '../../redux/actions/actions'
+// import * as actions from '../../redux/actions/actions'
 
 
 const {Option} = Select
 
-export default class App extends Component {
+export default class Counter extends Component {
   state = {
     selectValue:1
+  }
+  static propTypes = {
+    count:PropTypes.number.isRequired,
+    incrementCreator:PropTypes.func.isRequired,
+    reduceCreator:PropTypes.func.isRequired
   }
   handleSelect = (data) => {
     this.setState({selectValue:data});
@@ -19,7 +24,8 @@ export default class App extends Component {
     const {selectValue} = this.state;
 
     // 2.调用store的方法更新状态
-    this.props.store.dispatch(actions.incrementCreator(selectValue));
+    // this.props.store.dispatch(actions.incrementCreator(selectValue));
+    this.props.incrementCreator(selectValue);
     
   }
   reduce = e => {
@@ -27,7 +33,8 @@ export default class App extends Component {
     const {selectValue} = this.state;
 
     // 2.更新
-    this.props.store.dispatch(actions.reduceCreator(selectValue));
+    // this.props.store.dispatch(actions.reduceCreator(selectValue));
+    this.props.reduceCreator(selectValue);
 
   }
   incrementIfOdd = e => {
@@ -35,11 +42,13 @@ export default class App extends Component {
     const {selectValue} = this.state;
 
     // 2.得到原本的count状态
-    const count = this.props.store.getState();
+    // const count = this.props.store.getState();
+    const {count} = this.props;
 
     // 判断，满足条件才更新
     if(!(count%2 === 0)){
-      this.props.store.dispatch(actions.incrementCreator(selectValue));
+      // this.props.store.dispatch(actions.incrementCreator(selectValue));
+      this.props.incrementCreator(selectValue);
     }
 
   }
@@ -49,12 +58,15 @@ export default class App extends Component {
 
     // 启动延时定时器
     setTimeout(()=>{
-      this.props.store.dispatch(actions.incrementCreator(selectValue));
+      // this.props.store.dispatch(actions.incrementCreator(selectValue));
+      this.props.incrementCreator(selectValue);
+
     },1000)
 
   }
   render() {
-    const count = this.props.store.getState();
+    // const count = this.props.store.getState();
+    const {count} = this.props;
     return (
       <div style={{width:'1000px',margin:'0 auto'}}>
         <h2>click {count} times</h2>
@@ -77,3 +89,4 @@ export default class App extends Component {
     )
   }
 }
+
