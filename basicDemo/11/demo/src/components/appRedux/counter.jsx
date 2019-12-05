@@ -14,7 +14,8 @@ export default class Counter extends Component {
   static propTypes = {
     count:PropTypes.number.isRequired,
     incrementCreator:PropTypes.func.isRequired,
-    reduceCreator:PropTypes.func.isRequired
+    reduceCreator:PropTypes.func.isRequired,
+    incrementAsyncCreator:PropTypes.func.isRequired
   }
   handleSelect = (data) => {
     this.setState({selectValue:data});
@@ -56,12 +57,8 @@ export default class Counter extends Component {
     // 1.得到选择的增加数量
     const {selectValue} = this.state;
 
-    // 启动延时定时器
-    setTimeout(()=>{
-      // this.props.store.dispatch(actions.incrementCreator(selectValue));
-      this.props.incrementCreator(selectValue);
-
-    },1000)
+    // 2.异步操作
+    this.props.incrementAsyncCreator(selectValue);
 
   }
   render() {
