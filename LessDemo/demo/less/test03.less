@@ -1,0 +1,25 @@
+// 123
+/* 111 */
+// 变量定义
+@color:red;
+@width:width;
+@selector:#app;
+.main(@a:100px,@b:100px,@c:pink){
+  width:@a;
+  height:@b;
+  background-color:@color;
+  &:hover{
+    border:2px solid @c;
+  }
+}
+@{selector}{
+  @{width}:200px;
+  height:200px;
+  border:1px solid black;
+  .content{
+   .main(150px,100px,blue);
+  }
+  .content2{
+    .main(@c:yellow);
+  }
+}

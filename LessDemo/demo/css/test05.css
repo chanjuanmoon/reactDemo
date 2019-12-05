@@ -1,0 +1,14 @@
+/* 计算只需一方带单位 */
+#app {
+  width: 300px;
+  height: 100px;
+  border: 1px solid black;
+}
+#app .content {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+#app .content:hover {
+  border: 2px solid green;
+}

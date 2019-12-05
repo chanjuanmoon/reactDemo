@@ -1,0 +1,22 @@
+/* 111 */
+#app {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+#app .content {
+  width: 150px;
+  height: 100px;
+  background-color: red;
+}
+#app .content:hover {
+  border: 2px solid blue;
+}
+#app .content2 {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+#app .content2:hover {
+  border: 2px solid yellow;
+}

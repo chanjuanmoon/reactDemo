@@ -1,0 +1,17 @@
+/* 计算只需一方带单位 */
+// 变量定义
+@color:red;
+
+#app{
+  width:(100+200px);
+  height:(300-200px);
+  border:1px solid black;
+  .content{
+    width:100px;
+    height:100px;
+    background-color:@color;
+    &:hover{
+      border:2px solid green;
+    }
+  }
+}
