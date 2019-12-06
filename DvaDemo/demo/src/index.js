@@ -1,8 +1,12 @@
 import dva from 'dva';
 import './index.css';
+import {createBrowserHistory as createHistory} from 'history';
 
 // 1. Initialize
-const app = dva();
+// const app = dva();//默认hash路由 #
+const app = dva({
+  history: createHistory(),//BrowserHistory浏览器路由
+});
 
 // 2. Plugins
 // app.use({});
