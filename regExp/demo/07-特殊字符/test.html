@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>07-特殊字符</title>
+  </head>
+  <body>
+    <script>
+    /* 
+      匹配特殊符号的时候需要加反斜杠 \
+
+      JS中特殊字符有 ^ $ \ . * + ? () [] {} |
+
+      所以如果你需要匹配星号 * ,就需要这样写
+
+      \*
+    
+     */
+
+     const str = "function(params1){console.log('Testing!')}";
+
+     console.log(str.match(/(.*)/g));//["function(params1){console.log('Testing!')}",""]
+
+     console.log(str.match(/\(.*\)/));//["(params1){console.log('Testing!')"]
+    
+     console.log(str.match(/\([a-zA-Z0-9]*\)/));//["(params1)"]
+    </script>
+  </body>
+</html>

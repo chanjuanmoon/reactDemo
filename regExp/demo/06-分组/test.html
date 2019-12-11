@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>06-分组</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        小括号在正则中代表分组，一般在match方法中用来返回全匹配加上多个分组结果，
+        如果使用了g选项，则只返回全匹配
+
+        在小括号中使用管道 | 符号，代表或
+       */
+
+       const str = 'regex148';
+
+       console.log(str.match(/.*(ex)(.*)/));//['regex148,'ex','148']
+
+       console.log(str.match(/.*(ex)(.*)/g));//['regex148']
+
+       console.log(str.match(/(re|ex)[0-9]+/g));//['ex148']
+    </script>
+  </body>
+</html>

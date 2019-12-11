@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>05-量词匹配</title>
+  </head>
+  <body>
+    <script>
+     /* 
+     * 匹配0次或多次
+      + 匹配1次或多次
+      ? 匹配0次或1次
+      {3} 匹配3次
+      {2,4} 匹配2、3或4次
+      {2,} 匹配2次或多次
+      */
+      
+     const str = 'regex148';
+
+     console.log(str.match(/.*148/));//['regex148']
+
+     console.log(str.match(/[a-z]*/));//['regex']
+
+     console.log(str.match(/[0-9]{2}/));//['14']
+
+     console.log(str.match(/[re]+z?[egr]*/));//['rege']
+
+    </script>
+  </body>
+</html>

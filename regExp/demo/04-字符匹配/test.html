@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>04-字符匹配</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        . 可以匹配除了换行符以外的任意字符
+        \d 可以匹配任意数字
+        \D 可以匹配任意非数字
+        \s 可以匹配任意空白字符
+        \S 可以匹配任意非空白字符
+        \n 匹配换行
+        \w 它其实就等同于[A-Za-z0-9],即匹配字母数字下划线
+       */
+
+       const str = 'regx148'
+
+       console.log(str.match(/\d/g));//['1','4','8']
+
+       console.log(str.match(/\D\d/));//['x1']
+
+       console.log(str.match(/.\S./g));//['reg','x14']
+
+    </script>
+  </body>
+</html>

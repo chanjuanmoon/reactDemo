@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>08-取非匹配</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        匹配除了某个字符的任意字符，需要在中括号[]中使用^
+
+        至此 ^ 具有两个含义
+
+        1.如果用于正则表达式的开头，代表匹配字符串的开头
+        2.如果用于中括号[]内部，则代表匹配非此字符
+
+       */
+       const str = "function(params1){console.log('Testing!')}";
+
+       console.log(str.match(/[^0-9]*/g));//["function(params","","){console.log('Testing!')}",""]
+    
+       console.log(str.match(/[^a-zA-Z]*/g));
+    
+    
+    
+    </script>
+  </body>
+</html>

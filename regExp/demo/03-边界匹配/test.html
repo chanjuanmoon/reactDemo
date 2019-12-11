@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03-边界匹配</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        ^ 代表匹配字符串的开头
+        $ 代表匹配字符串的结尾
+       */
+
+       const str = 'regx148';
+
+       console.log(str.match(/^r/));//['r']
+
+       console.log(str.match(/^m/));//null
+
+       console.log(str.match(/[0-9]$/));//['8']
+
+       console.log(str.match(/^[a-z]/));//['r']
+
+       console.log(str.match(/[a-z][0-9]/));//['x1']
+
+
+
+
+
+    
+    </script>
+  </body>
+</html>

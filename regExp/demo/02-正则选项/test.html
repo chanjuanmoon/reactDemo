@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02-正则对象</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        正则对象的后面也可跟选项，JavaScript中常用选项有：
+        i:代表忽略大小写
+        m:代表多行匹配
+        g:代表全局匹配（可多次匹配）
+       */
+
+       const str = 'regx148E';
+
+       console.log(str.match(/e/));//['e']
+
+      //  i:忽略大小写
+       console.log(str.match(/E/i));//['e']
+
+
+      //  g:全局匹配
+      // g是global的缩写啊！就是匹配全部可匹配结果，
+      // 如果你不带g,在正则过程中，字符串是从左至右匹配的，
+      // 如果匹配成功就不再继续向右匹配了
+      // 如果你带g,它会重头到尾的把正确匹配的字符串挑选出来
+
+      console.log(str.match(/e/g));
+
+      console.log(str.match(/E/ig));
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
