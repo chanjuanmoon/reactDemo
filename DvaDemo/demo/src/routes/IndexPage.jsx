@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'dva'
 
+import * as apis from '../services/example'
+
 
 class IndexPage extends React.Component{
   handleSetName = e => {
@@ -22,6 +24,12 @@ class IndexPage extends React.Component{
   testCnode = e => {
     this.props.dispatch({
       type:'indexTest/testCnode'
+    })
+  }
+  componentDidMount(){
+    // 测试mock数据
+    apis.testMock().then((res)=>{
+      console.log(res);
     })
   }
   render(){
