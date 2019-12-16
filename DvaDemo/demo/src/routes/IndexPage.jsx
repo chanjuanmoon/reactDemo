@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'dva'
 
+
 class IndexPage extends React.Component{
   handleSetName = e => {
     this.props.dispatch({
@@ -10,23 +11,39 @@ class IndexPage extends React.Component{
       }
     })
   }
+  handleSetNameAsync = e => {
+    this.props.dispatch({
+      type:'indexTest/setNameAsync',
+      data:{
+        name:'小白'
+      }
+    })
+  }
+  testCnode = e => {
+    this.props.dispatch({
+      type:'indexTest/testCnode'
+    })
+  }
   render(){
+    console.log(this.props.cnodeData);
     return (
       <div>
         我是首页
         <h2>{this.props.name}</h2>
         <h2>{this.props.msg}</h2>
         <button onClick={this.handleSetName}>setName</button>
+        <button onClick={this.handleSetNameAsync}>setNameAsync</button>
+        <button onClick={this.testCnode}>testCnode</button>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     msg:'bjt',
-    name:state.indexTest.name
+    name:state.indexTest.name,
+    cnodeData:state.indexTest.cnodeData
   }
 }
 
