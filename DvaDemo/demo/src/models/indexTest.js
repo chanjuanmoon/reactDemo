@@ -18,6 +18,11 @@ export default {
       let state_ = JSON.parse(JSON.stringify(state));
       state_.cnodeData = payload.data;
       return state_;
+    },
+    testPath(state,payload){
+      let state_ = JSON.parse(JSON.stringify(state));
+      console.log('testPath');
+      return state_;
     }
   },
   effects:{
@@ -38,6 +43,17 @@ export default {
          data:rel.data.data
        })
      }
+    }
+  },
+  subscriptions:{
+    haha({dispatch,history}){
+      history.listen(({pathname})=>{
+        if(pathname === '/user'){
+          dispatch({
+            type:'testPath'
+          })
+        }
+      })
     }
   }
   
